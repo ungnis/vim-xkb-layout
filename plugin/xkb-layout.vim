@@ -3,7 +3,7 @@
 " Version:      1.0
 
 let g:template_dir="$XDG_CONFIG_HOME/templates/"
-let g:layouts_dir="$XDG_CONFIG_HOME/keyboard/"
+let g:layout_dir="$XDG_CONFIG_HOME/keyboard/"
 
 function s:xkb_layout()
     %substitute+\(\S\)+\=printf('U%04X', char2nr(submatch(0)))+g
@@ -24,4 +24,4 @@ endfunction
 nnoremap <leader>uni :%substitute+\vU(\x{4})+\=nr2char(str2nr(submatch(1), 16))+g
 nnoremap <leader>guni :%substitute+\(\S\)+\=printf('U%04X', char2nr(submatch(0)))+g
 
-autocmd BufWritePost g:layouts_dir/*.layout call s:xkb_layout() | write | !sudo cp % /usr/share/X11/xkb/symbols/%:r
+autocmd BufWritePost g:layout_dir/*.layout call s:xkb_layout() | write | !sudo cp % /usr/share/X11/xkb/symbols/%:r
