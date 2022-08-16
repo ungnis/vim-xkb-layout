@@ -24,4 +24,4 @@ endfunction
 nnoremap <leader>uni :%substitute+\vU(\x{4})+\=nr2char(str2nr(submatch(1), 16))+g
 nnoremap <leader>guni :%substitute+\(\S\)+\=printf('U%04X', char2nr(submatch(0)))+g
 
-autocmd BufWritePost g:layout_dir/*.layout call s:xkb_layout() | write %:r | !sudo cp %:r /usr/share/X11/xkb/symbols/%:r
+autocmd BufWritePost g:layout_dir/*.layout write | call s:xkb_layout() | write %:r | !sudo cp %:r /usr/share/X11/xkb/symbols/%:r
