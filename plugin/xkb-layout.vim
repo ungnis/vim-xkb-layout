@@ -2,8 +2,8 @@
 " Author:       ungnis
 " Version:      1.0
 
-let g:template_dir="$XDG_LOCAL_HOME/templates/"
-let g:layout_dir="$XDG_LOCAL_HOME/keyboard/"
+let g:template_dir="$XDG_DATA_HOME/templates/"
+let g:layout_dir="$XDG_DATA_HOME/keyboard/"
 
 function s:xkb_layout()
     %substitute+\(\S\)+\=printf('U%04X', char2nr(submatch(0)))+g
